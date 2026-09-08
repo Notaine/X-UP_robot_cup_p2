@@ -14,6 +14,11 @@ void setup() {
   pinMode(CAPTEUR, INPUT_PULLUP);
   digitalWrite(DIRD, HIGH);
   digitalWrite(DIRG, HIGH);
+}
+
+void loop() {
+  static bool termine = false;
+  if (termine) return;                            // la séquence ne s'exécute qu'une fois
 
   delay(3000);                                   // 1. attendre 3s
 
@@ -25,6 +30,5 @@ void setup() {
 
   analogWrite(PWMD, 0);
   analogWrite(PWMG, 0);
+  termine = true;
 }
-
-void loop() {}
